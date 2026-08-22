@@ -48,14 +48,22 @@ export default function Hero() {
         {/* Visual Content (Video Thumbnail Mock from code.html) */}
         <div className="relative flex justify-center md:justify-end">
           <div className="relative w-full aspect-[9/16] max-w-[320px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-surface-container-lowest transform md:-rotate-2 md:hover:rotate-0 transition-transform duration-500">
-            <div 
-              className="absolute inset-0 bg-cover bg-center" 
-              style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs5a-sA3XYZwFq45dDtlxjxCtAs_8gdU77WijEFWEHp_eLzjILQH753zKEXj9UV40AwpqjRzrOMK-M9bSoqns5DHNsC2nW_--KbLlqAT02CQJqTv60dpv5cDcojcUeCy9ZtcC1y-OMf04R_ONdP7K74QlXS_LOs2LphUyvwHW8dx7tp74fzKPSr5NKjbRhF7aQUujrl_EALNKqieK_OqBrXh-NgURBDzfa-i2xAJapQFWLIz-3IBHQ')" }}
-            ></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-tiktok-black/80 to-transparent flex flex-col justify-end p-6 text-left">
-              <span className="material-symbols-outlined text-white text-4xl mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>play_circle</span>
-              <h3 className="font-title-md text-title-md text-white">Domina el Algoritmo</h3>
-              <p className="font-body-md text-body-md text-surface-variant">Con @CreatorPro</p>
+            {/* Local Video loop */}
+            <video 
+              className="absolute inset-0 w-full h-full object-cover" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+            >
+              <source src="/videos/hero-video.mp4" type="video/mp4" />
+              Tu navegador no soporta videos.
+            </video>
+            
+            {/* Overlay Gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-tiktok-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-left pointer-events-none">
+              <h3 className="font-title-md text-title-md text-white drop-shadow-md">Domina el Algoritmo</h3>
+              <p className="font-body-md text-body-md text-surface-variant drop-shadow-md">Con CEMPROZA</p>
             </div>
           </div>
 

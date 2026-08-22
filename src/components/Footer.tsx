@@ -16,15 +16,15 @@ export default function Footer() {
         
         {/* Copyright */}
         <p className="font-body-md text-body-md text-on-surface-variant text-center md:text-left">
-          © {new Date().getFullYear()} CEMPROZA Cursos. Empowering the next generation of creators.
+          © {new Date().getFullYear()} CEMPROZA Cursos. Empoderando a la próxima generación de creadores.
         </p>
 
         {/* Links */}
         <nav className="flex flex-wrap justify-center gap-4">
-          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Privacy Policy</Link>
-          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Terms of Service</Link>
-          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Help Center</Link>
-          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Contact Us</Link>
+          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Política de Privacidad</Link>
+          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Términos de Servicio</Link>
+          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Centro de Ayuda</Link>
+          <Link href="#" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:underline hover:text-primary dark:text-primary-fixed-dim transition-all duration-300">Contáctanos</Link>
         </nav>
       </div>
     </footer>
