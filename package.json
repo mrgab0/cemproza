@@ -13,7 +13,7 @@
     "imagekit": "^6.0.0",
     "leaflet": "^1.9.4",
     "mongoose": "^9.9.3",
-    "next": "16.3.2",
+    "next": "16.4.1",
     "open-location-code": "^1.0.3",
     "react": "19.2.8",
     "react-dom": "19.2.8",
