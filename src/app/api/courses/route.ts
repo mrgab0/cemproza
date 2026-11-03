@@ -19,7 +19,7 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { title, description, imageUrl, videoUrl, isActive } = body;
+    const { title, description, imageUrl, videoUrl, isActive, whatsappGroupLink } = body;
 
     if (!title || !description || !imageUrl) {
       return NextResponse.json(
@@ -36,6 +36,7 @@ export async function POST(req: Request) {
       imageUrl,
       videoUrl,
       isActive: isActive !== undefined ? isActive : true,
+      whatsappGroupLink: whatsappGroupLink || "",
     });
 
     return NextResponse.json(newCourse, { status: 201 });

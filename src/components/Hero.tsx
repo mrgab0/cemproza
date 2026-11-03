@@ -1,54 +1,50 @@
-import Link from "next/link";
+import connectToDatabase from "@/lib/mongodb";
+import SiteSettings from "@/models/SiteSettings";
 
-export default function Hero() {
+export default async function Hero() {
+  await connectToDatabase();
+  const settings = await SiteSettings.findOne({});
+  
+  // Default values si no hay nada en la BD
+  const videoUrl = settings?.heroVideoUrl || "/videos/hero-video.mp4";
+  const title = settings?.heroTitle || "Domina el Algoritmo";
+  const subtitle = settings?.heroSubtitle || "Con CEMPROZA";
+
   return (
-    <section className="relative bg-surface-grey overflow-hidden">
-      {/* Background Image Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20" 
-        style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhnA4GHohhamV9Ita-4OeQkgO8CxLpAEO4SANBRRlchs6cBouwpw_F2FK5-gM7vH7jDCuizSlgu9jfsqgZATOuTrIprkBa15jGComqoChcHLCNRw3enNxwQq6VqnuF1MqmjR0w92d2EUCGoLNO6XTH8-VP1QtNXxaAopGa9cWRWVas_BJoeupNWmFTofBxZvJ3XcK0Q0IKMqDzFcOKLcvOBZkIRlqc1DS8WklBZhGj7JRYbe5FMYe-')" }}
-      ></div>
+    <section className="bg-surface relative overflow-hidden" id="hero">
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-container/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
       
-      <div className="relative z-10 px-gutter max-w-container-max mx-auto py-16 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-container-max mx-auto px-gutter py-section-gap min-h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
         
         {/* Text Content */}
-        <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
-          <div className="inline-flex items-center gap-2 bg-secondary-container/20 text-on-secondary-fixed-variant px-4 py-1.5 rounded-full font-label-sm border border-secondary-container/30">
-            <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
-            Nuevos Cursos Disponibles
+        <div className="flex-1 max-w-2xl text-center md:text-left pt-12 md:pt-0">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high border border-outline-variant mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span className="font-label-sm text-label-sm text-on-surface-variant font-bold tracking-wider uppercase">Inscripciones Abiertas</span>
           </div>
           
-          <h1 className="font-display-lg text-display-lg text-on-surface">
-            Potencia tu Futuro con <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-inverse-primary leading-tight">CEMPROZA</span>
+          <h1 className="font-display-lg text-display-lg font-black text-on-surface mb-6 leading-tight">
+            Educación profesional con la energía del <span className="text-primary relative inline-block">mundo digital<span className="absolute bottom-1 left-0 w-full h-3 bg-primary-container -z-10 rounded-sm"></span></span>
           </h1>
           
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-            Programas de formación profesional diseñados para el mundo moderno. Aprende habilidades prácticas y obtén certificación.
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
+            Aprende las habilidades más demandadas del mercado con cursos prácticos, directos al grano y diseñados para que empieces a crear desde el primer día.
           </p>
           
-          <div className="flex gap-4 mt-4 w-full md:w-auto">
-            <Link href="#enroll" className="w-full md:w-auto bg-primary text-on-primary font-title-md text-title-md px-8 py-4 rounded-lg hover:bg-on-primary-container transition-colors duration-300 shadow-[0_4px_14px_0_rgba(0,226,217,0.2)] text-center">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+            <a href="#courses" className="w-full sm:w-auto bg-primary text-on-primary font-title-md py-4 px-8 rounded-lg shadow-md hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors text-center font-bold">
               Explorar Cursos
-            </Link>
-          </div>
-
-          {/* Quick Stats (Mobile visible, Desktop hidden or adjusted) */}
-          <div className="flex gap-4 w-full max-w-sm mt-8 md:hidden">
-            <div className="flex-1 bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/30 text-center">
-              <div className="font-headline-lg-mobile text-headline-lg-mobile text-primary-container font-bold">10k+</div>
-              <div className="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Alumnos</div>
-            </div>
-            <div className="flex-1 bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/30 text-center">
-              <div className="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container font-bold">50+</div>
-              <div className="font-label-sm text-label-sm text-on-surface-variant uppercase mt-1">Cursos</div>
-            </div>
+            </a>
+            <a href="#enroll" className="w-full sm:w-auto bg-surface text-on-surface border-2 border-outline-variant font-title-md py-4 px-8 rounded-lg hover:bg-surface-variant transition-colors text-center font-bold flex items-center justify-center gap-2">
+              <span className="material-symbols-outlined">school</span> Contactar Asesor
+            </a>
           </div>
         </div>
 
         {/* Visual Content (Video Thumbnail Mock from code.html) */}
         <div className="relative flex justify-center md:justify-end">
           <div className="relative w-full aspect-[9/16] max-w-[320px] rounded-[32px] overflow-hidden shadow-2xl border-4 border-surface-container-lowest transform md:-rotate-2 md:hover:rotate-0 transition-transform duration-500">
-            {/* Local Video loop */}
+            {/* Local/Dynamic Video loop */}
             <video 
               className="absolute inset-0 w-full h-full object-cover" 
               autoPlay 
@@ -56,14 +52,14 @@ export default function Hero() {
               muted 
               playsInline
             >
-              <source src="/videos/hero-video.mp4" type="video/mp4" />
+              <source src={videoUrl} type="video/mp4" />
               Tu navegador no soporta videos.
             </video>
             
             {/* Overlay Gradient for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-tiktok-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-left pointer-events-none">
-              <h3 className="font-title-md text-title-md text-white drop-shadow-md">Domina el Algoritmo</h3>
-              <p className="font-body-md text-body-md text-surface-variant drop-shadow-md">Con CEMPROZA</p>
+              <h3 className="font-title-md text-title-md text-white drop-shadow-md">{title}</h3>
+              <p className="font-body-md text-body-md text-surface-variant drop-shadow-md">{subtitle}</p>
             </div>
           </div>
 

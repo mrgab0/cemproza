@@ -6,6 +6,8 @@ export interface ICourse extends Document {
   imageUrl: string;
   videoUrl?: string;
   isActive: boolean;
+  whatsappGroupLink?: string;
+  branchId: string;
   createdAt: Date;
 }
 
@@ -15,6 +17,8 @@ const CourseSchema: Schema = new Schema({
   imageUrl: { type: String, required: true },
   videoUrl: { type: String },
   isActive: { type: Boolean, default: true },
+  whatsappGroupLink: { type: String, default: "" },
+  branchId: { type: String, default: "barinas", index: true },
   createdAt: { type: Date, default: Date.now },
 });
 

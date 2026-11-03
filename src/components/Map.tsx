@@ -14,12 +14,13 @@ const customIcon = new L.Icon({
 });
 
 const pointsOfInterest = [
-  { name: "🏛️ Plaza Bolívar", pos: [8.6275, -70.2200] as [number, number] },
-  { name: "🐼 Bazar La Nueva Chinita", pos: [8.6245, -70.2235] as [number, number] },
+  { name: "🏛️ Plaza Bolívar", pos: [8.6315, -70.2102] as [number, number] },
+  { name: "🐼 Bazar La Nueva Chinita", pos: [8.6317, -70.2128] as [number, number] },
 ];
 
 export default function Map() {
-  const centerPosition: [number, number] = [8.626, -70.222]; // Coordenadas principales (CEMPROZA)
+  // Coordenadas exactas para Edificio Los Cristales, Barinas
+  const centerPosition: [number, number] = [8.6323087, -70.2117236]; 
 
   return (
     <MapContainer 
