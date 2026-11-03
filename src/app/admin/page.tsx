@@ -595,10 +595,19 @@ export default function AdminPage() {
             <span className="material-symbols-outlined text-primary-container" style={{ fontVariationSettings: "'FILL' 1" }}>admin_panel_settings</span>
             <span className="font-headline-lg text-title-md font-black text-on-surface">Panel de Administración</span>
           </div>
-          <Link href="/" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
-            <span className="material-symbols-outlined text-sm">open_in_new</span>
-            Ver sitio
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/ceo/admin"
+              className="text-xs font-bold px-3 py-1.5 bg-amber-50 text-amber-900 border border-amber-300 rounded-lg flex items-center gap-1.5 hover:bg-amber-100 transition-colors"
+            >
+              <span className="material-symbols-outlined text-sm text-amber-600">shield_person</span>
+              <span>Modo CEO / Multi-Sedes</span>
+            </Link>
+            <Link href="/" className="text-primary hover:underline text-sm font-bold flex items-center gap-1">
+              <span className="material-symbols-outlined text-sm">open_in_new</span>
+              Ver sitio
+            </Link>
+          </div>
         </div>
       </header>
 
